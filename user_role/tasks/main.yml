@@ -6,7 +6,7 @@
 - name: Install dependencies
   ansible.builtin.apt:
     name:
-      - python3
+      - python3-pip # for get_url download public key
     state: present
 
 - include_tasks: groups.yml

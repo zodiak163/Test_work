@@ -1,0 +1,17 @@
+---
+- name:
+    ansible.builtin.user:
+      name: "{{ item.name }}"
+      password: "{{ item.password }}"
+      shell: "{{ item.shell  }}"
+      state: "{{ item.state }}"
+    loop: "{{ users }}"
+    when: item.state == 'present'
+
+- name: delete users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    state: absent
+  loop: "{{ users }}"
+  when: item.state == 'absent'
+
