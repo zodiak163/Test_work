@@ -1,2 +1,3 @@
-secret.yml
+secrets.yml
+/user_role/vars/secrets.yml
 
