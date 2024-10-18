@@ -3,6 +3,7 @@
   ansible.builtin.command: "getent passwd | cut -d: -f1"
   register: current_users
   changed_when: false
+  tags: users-disable
 
 - name: Disable users
   ansible.builtin.user:
@@ -10,3 +11,4 @@
     state: absent
   loop: "{{ current_users.stdout_lines | difference(users | map(attribute='name') | list) }}"
   when: item != 'root'  # Опасненько, убираем рута
+  tags: users-disable

@@ -1,0 +1,14 @@
+$Username = "{{ username }}"
+$ExpirationDate = [datetime] "{{ expiration_date }}"
+
+$CurrentDate = Get-Date
+
+if ($CurrentDate -gt $ExpirationDate) {
+    Write-Host "Отключение пользователя $Username"
+    Disable-LocalUser -Name $Username
+} else {
+    Write-Host "Пользователь $Username активен до $ExpirationDate"
+}
+if ($LastExitCode -ne 0) {
+    throw "Error (("
+}

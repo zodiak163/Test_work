@@ -1,0 +1,16 @@
+- name: For date
+  ansible.builtin.template:
+    src: disabled_users.j2
+    dest: /usr/local/bin/disabled_users_{{ item.name }}.ps1
+  with_items: "{{ users }}"
+  tags: disable-work
+
+- name: Install cron
+  ansible.builtin.cron:
+    name: "Disabled_users_date"
+    minute: "0"
+    hour: "0"
+    job: "powershell /usr/local/bin/disable_user_{{ item.name }}.ps1"
+    state: present
+  with_items: "{{ users }}"
+  tags: disable-work

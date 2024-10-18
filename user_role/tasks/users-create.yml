@@ -1,7 +1,5 @@
 ---
 
-- name: Vars for secret
-  include_vars: vars/secret.yml
 - name:
     ansible.builtin.user:
       name: "{{ item.name }}"
@@ -10,6 +8,7 @@
       state: "{{ item.state }}"
     loop: "{{ users }}"
     when: item.state == 'present'
+  tags: users-create
 
 - name: delete users
   ansible.builtin.user:
@@ -17,4 +16,5 @@
     state: absent
   loop: "{{ users }}"
   when: item.state == 'absent'
+  tags: users-delete
 

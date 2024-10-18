@@ -9,6 +9,9 @@
       - python3-pip # for get_url download public key
     state: present
 
+- name: Vars for secret
+  include_vars: vars/secrets.yml
+
 - include_tasks: groups.yml
 - include_tasks: users-create.yml
 - include_tasks: users-disable.yml
