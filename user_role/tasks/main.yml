@@ -1,0 +1,15 @@
+---
+- name: Update OS
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install dependencies
+  ansible.builtin.apt:
+    name:
+      - python3
+    state: present
+
+- include_tasks: groups.yml
+- include_tasks: users-create.yml
+- include_tasks: users-disable.yml
+- include_tasks: disable-work.yml
