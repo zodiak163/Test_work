@@ -1,4 +1,7 @@
 ---
+
+- name: Vars for secret
+  include_vars: vars/secrets.yml
 - name:
     ansible.builtin.user:
       name: "{{ item.name }}"
