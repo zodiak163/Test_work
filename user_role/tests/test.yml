@@ -1,5 +1,8 @@
 ---
-- hosts: localhost
-  remote_user: root
-  roles:
-    - user_role
+- name: Ensure all expected packages are installed
+  hosts: all
+  tasks:
+    - name: Ensure git is installed
+      ansible.builtin.package:
+        name: git
+        state: present

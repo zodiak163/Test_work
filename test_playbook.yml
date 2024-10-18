@@ -1,0 +1,6 @@
+---
+- name: start role
+  hosts: All
+  become: yes
+  roles:
+    - user_role
