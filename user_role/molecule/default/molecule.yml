@@ -1,0 +1,18 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: ubuntu:latest
+    command: /bin/bash
+    pre_build_image: true
+
+provisioner:
+  name: ansible
+  playbooks:
+    converge: /Test_work/test_playbook.yml
+verifier:
+  name: ansible
+  playbook: /Test_work/user_role/tests/test.yml
