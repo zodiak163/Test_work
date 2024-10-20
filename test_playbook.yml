@@ -1,6 +1,16 @@
 ---
-- name: start role
-  hosts: All
+- name: Download variables
+  hosts: all
   become: yes
-  roles:
-    - user_role
+  vars_files:
+    - secrets.yml
+
+  tasks:
+    - debug:
+        msg: " {{ user1_password }}"
+    - debug:
+        msg: " {{ user2_password }}"
+
+    - name: Start role
+      include_role:
+        name: user_role
