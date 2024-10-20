@@ -1,5 +1,4 @@
 ---
-
 - name:
     ansible.builtin.user:
       name: "{{ item.name }}"

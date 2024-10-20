@@ -1,38 +1,18 @@
-Role Name
-=========
+Команда для запуска плейбук ansible-playbook test_playbook.yml --ask-vault-pass
+Пароль для vault-pass 23233131
 
-A brief description of the role goes here.
+Запуск тестового inventory
+ansible-playbook -i tests/inventory.yaml tests/test.yaml --ask-vault-pass
 
-Requirements
-------------
+Запуск плейбук по тегу (пример)
+ansible-playbook test_playbook.yml --tags users-create  -- ask-vault-pass
+ 
+ 
+В конечном итоге ошибку допустил сразу, т з не дочитал до конца и начал делать по пунтам. 
+В итоге в ветках уже понял что нужды нет и напутал.
+Так же вначале брал переменные от уз (имя пароль и ssh) из переменной.
+Потом понял что нельзя же их кидать на гитхаб(как то прилетали лещи от яндекс за  разглашение токена)
+Помучался и скрыл файл в гитигнор, упорно не хотел скрывать. 
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Далее перенес в инвентори, но так не делал ни разу.
+В итоге оставил так все,слишком много работы(( Не успеваю. В любом случае было приятно поообщаться, спасибо.

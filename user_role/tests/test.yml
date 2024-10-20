@@ -1,8 +1,16 @@
 ---
-- name: Ensure all expected packages are installed
+- name: Download variables
   hosts: all
+  become: yes
+  vars_files:
+    - secrets.yml
+
   tasks:
-    - name: Ensure git is installed
-      ansible.builtin.package:
-        name: git
-        state: present
+    - debug:
+        msg: " {{ user1_password }}"
+    - debug:
+        msg: " {{ user2_password }}"
+
+    - name: Start role
+      include_role:
+        name: user_role

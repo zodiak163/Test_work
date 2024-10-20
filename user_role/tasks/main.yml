@@ -7,11 +7,11 @@
   ansible.builtin.apt:
     name:
       - python3-pip # for get_url download public key
-      - python3-venv
+      - python3-venv # rof test
     state: present
 
-- name: Vars for secret
-  include_vars: vars/secrets.yml
+- name: Vars for inventory
+  include_vars: vars/inventory.yml
 
 - include_tasks: groups.yml
 - include_tasks: users-create.yml
